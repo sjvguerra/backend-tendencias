@@ -5,20 +5,20 @@ import { DataSource } from 'typeorm';
 // import { RequirementRequestEntity } from '../entities/requirement-request.entity';
 import { CategoryEntity } from 'src/modules/category/entities/category.entity';
 import { RepositoryEnum } from 'src/shared/enums';
-import { CancionEntity } from 'src/modules/cancion/entities/cancion.entity';
-import { CantanteEntity } from '../entities/cantante.entity';
+import { EmpleadoEntity } from 'src/modules/empleado/entities/empleado.entity';
+import { EmpresaEntity } from '../entities/empresa.entity';
 
 export const cantanteProviders = [
   {
-    provide: RepositoryEnum.CANCION_REPOSITORY,
+    provide: RepositoryEnum.EMPLEADO_REPOSITORY,
     useFactory: (dataSource: DataSource) =>
-      dataSource.getRepository(CancionEntity),
+      dataSource.getRepository(EmpleadoEntity),
     // inject: [DataSourceEnum.PG_DATA_SOURCE],
   },
   {
-    provide: RepositoryEnum.CANTANTE_REPOSITORY,
+    provide: RepositoryEnum.EMPRESA_REPOSITORY,
     useFactory: (dataSource: DataSource) =>
-      dataSource.getRepository(CantanteEntity),
+      dataSource.getRepository(EmpresaEntity),
     // inject: [DataSourceEnum.PG_DATA_SOURCE],
   },
 

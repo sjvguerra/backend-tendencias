@@ -1,5 +1,5 @@
 import { Global, Module } from "@nestjs/common";
-import { cancionProviders } from "./providers/cancion.providers";
+import { empleadoProviders } from "./providers/empleado.providers";
 // import {DatabaseModule} from "@database";
 
 @Global()
@@ -8,10 +8,10 @@ import { cancionProviders } from "./providers/cancion.providers";
         // imports: [DatabaseModule],
         controllers:[],
         providers:[
-            ...cancionProviders
+            ...empleadoProviders
         ],
     })
 
-    export class CancionModule{
+    export class EmpleadoModule{
 
     }

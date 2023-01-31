@@ -6,20 +6,20 @@ import { DataSource } from 'typeorm';
 
 import { ProductEntity } from '../../sales/entities';
 import { RepositoryEnum } from 'src/shared/enums';
-import { CancionEntity } from '../entities/cancion.entity';
-import { CantanteEntity } from 'src/modules/cantante/entities/cantante.entity';
+import { EmpleadoEntity } from '../entities/empleado.entity';
+import { EmpresaEntity } from 'src/modules/empresa/entities/empresa.entity';
 
-export const cancionProviders = [
+export const empleadoProviders = [
   {
-    provide: RepositoryEnum.CANTANTE_REPOSITORY,
+    provide: RepositoryEnum.EMPLEADO_REPOSITORY,
     useFactory: (dataSource: DataSource) =>
-      dataSource.getRepository(CantanteEntity),
+      dataSource.getRepository(EmpleadoEntity),
     // inject: [DataSourceEnum.PG_DATA_SOURCE],
   },
   {
-    provide: RepositoryEnum.CANCION_REPOSITORY,
+    provide: RepositoryEnum.EMPRESA_REPOSITORY,
     useFactory: (dataSource: DataSource) =>
-      dataSource.getRepository(CancionEntity),
+      dataSource.getRepository(EmpresaEntity),
     // inject: [DataSourceEnum.PG_DATA_SOURCE],
   },
 

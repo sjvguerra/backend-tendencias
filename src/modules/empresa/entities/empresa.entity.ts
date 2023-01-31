@@ -1,9 +1,9 @@
-import { CantanteEntity } from "src/modules/cantante/entities/cantante.entity";
+import { EmpresaEntity } from "src/modules/empresa/entities/empresa.entity";
 import { ProductEntity } from "src/modules/sales/entities";
 import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, DeleteDateColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { OneToMany } from "typeorm/decorator/relations/OneToMany";
 
-export class CancionEntity{
+export class EmpresaEntity{
 
     @PrimaryGeneratedColumn('uuid')
     id:number;
@@ -34,21 +34,28 @@ export class CancionEntity{
     @Column('varchar', {
     name:'name',
     unique:true,
-    comment: 'titulo de la canción',
+    comment: 'Nombre de la Empresa',
     })
     name:string;
 
     @Column('date', {
-        name:'fechaCreacion',
+        name:'fechaCreacionEmpresa',
         unique:true,
-        comment: 'Fecha de la creación de la canción',
+        comment: 'Fecha de fundacion de la empresa',
         })
-        fechaCreacion:string;
-    
+        fechaCreacionEmpresa:string;   
+        
+
+    @Column('varchar', {
+        name:'nacionalidad',
+        unique:true,
+        comment: 'Nacionalidad del cantante',
+        })
+        nacionalidad:string; 
     //Relationship   
      // Relaciones de uno a muchos
-     @ManyToOne(() => CantanteEntity, (cantante) => cantante.canciones)
-     cantante: CantanteEntity;
+    @OneToMany(() => EmpresaEntity , (empresa) => empresa.empleado)
+    empresas: EmpresaEntity[]
 
     // Relaciones de muchos a uno
     // @ManyToOne(() => CategoryEntity, (cateogry) => category.products)

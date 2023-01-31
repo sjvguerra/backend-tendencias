@@ -1,7 +1,7 @@
 import { IsNotEmpty } from "class-validator";
 import { isPositive, IsString } from "class-validator/types/decorator/decorators";
 // import { isNotEmptyValidationOpntions, IsStringValidationOpntions,IsPositiveValidationOpntions } from '@shared/validation'
-export  class BaseCantanteDto{
+export  class BaseEmpresaDto{
 
     @IsNotEmpty(isNotEmptyValidationOpntions())
     @IsString(IsStringValidationOpntions())
